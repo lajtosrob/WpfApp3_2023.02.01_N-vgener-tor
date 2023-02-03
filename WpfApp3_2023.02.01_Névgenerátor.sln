@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp3_2023.02.01_Névgenerátor", "WpfApp3_2023.02.01_Névgenerátor\WpfApp3_2023.02.01_Névgenerátor.csproj", "{8AB292FD-DC73-49D9-974C-ECEC50B14264}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8AB292FD-DC73-49D9-974C-ECEC50B14264}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AB292FD-DC73-49D9-974C-ECEC50B14264}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AB292FD-DC73-49D9-974C-ECEC50B14264}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AB292FD-DC73-49D9-974C-ECEC50B14264}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {93B187ED-BC45-4D59-A9F3-231C68169294}
+	EndGlobalSection
+EndGlobal

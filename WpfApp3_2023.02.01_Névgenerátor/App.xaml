@@ -1,0 +1,9 @@
+﻿<Application x:Class="WpfApp3_2023._02._01_Névgenerátor.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WpfApp3_2023._02._01_Névgenerátor"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>
