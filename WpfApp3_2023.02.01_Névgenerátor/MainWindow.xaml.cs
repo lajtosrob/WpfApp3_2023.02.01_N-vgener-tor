@@ -23,9 +23,13 @@ namespace WpfApp3_2023._02._01_Névgenerátor
     /// </summary>
     public partial class MainWindow : Window
     {
+        string fullName = null;
+        int rndSurname;
+        int rndForename;
         public MainWindow()
         {
             InitializeComponent();
+
             // sliGenerateName.Maximum = lbSurnameList.Items.Count;
             // lblMaxSli.Content = lbSurnameList.Items.Count;
         }
@@ -93,9 +97,6 @@ namespace WpfApp3_2023._02._01_Névgenerátor
         private void generateName_Click(object sender, RoutedEventArgs e)
         {
             Random rnd = new Random();
-            string fullName = null;
-            int rndSurname;
-            int rndForename;
             int rndForename2;
             if (rdoOneForename.IsChecked == true)
             {
@@ -104,9 +105,7 @@ namespace WpfApp3_2023._02._01_Névgenerátor
                     rndSurname = rnd.Next(lbSurnameList.Items.Count - 1);
                     rndForename = rnd.Next(lbForenameList.Items.Count - 1);
                     fullName = lbSurnameList.Items[rndSurname] + " " + Convert.ToString(lbForenameList.Items[rndForename]);
-                    lbgeneratedNames.Items.Add(fullName);
-                    lbSurnameList.Items.RemoveAt(rndSurname);
-                    lbForenameList.Items.RemoveAt(rndForename);
+                    AddAndDeleteListItem();
                 }
             }
             if (rdoTwoForename.IsChecked == true)
@@ -117,19 +116,21 @@ namespace WpfApp3_2023._02._01_Névgenerátor
                     rndForename = rnd.Next(lbForenameList.Items.Count - 1);
                     rndForename2 = rnd.Next(lbForenameList.Items.Count - 1);
                     fullName = lbSurnameList.Items[rndSurname] + " " + Convert.ToString(lbForenameList.Items[rndForename]) + " " + Convert.ToString(lbForenameList.Items[rndForename2]);
-                    lbgeneratedNames.Items.Add(fullName);
-                    lbSurnameList.Items.RemoveAt(rndSurname);
-                    lbForenameList.Items.RemoveAt(rndForename);
+                    AddAndDeleteListItem();
+                    if (rndForename < rndForename2)
+                    {
+                        lbForenameList.Items.RemoveAt(rndForename2 - 1);
+                    }
+                    else
+                    {
                     lbForenameList.Items.RemoveAt(rndForename2);
+                    }
+
                 }
             }
-            tbNumberOfGeneratedNames.Text = lbgeneratedNames.Items.Count.ToString();
-            lblSurname.Content = "Családnevek   " + lbSurnameList.Items.Count;
-            lblForename.Content = "Utónevek   " + lbForenameList.Items.Count;
-            sliGenerateName.Maximum = lbSurnameList.Items.Count;
-            lblMaxSli.Content = lbSurnameList.Items.Count;
+            ResetCounters();
             stbOrderedList.Content = "";
-            JumpToEndOfList();
+            JumpToEndOfGenList();
         }
         private void deleteGeneratedNames_Click(object sender, RoutedEventArgs e)
         {
@@ -151,11 +152,8 @@ namespace WpfApp3_2023._02._01_Névgenerátor
                 }
             }
             lbgeneratedNames.Items.Clear();
-            lblSurname.Content = "Családnevek   " + lbSurnameList.Items.Count;
-            lblForename.Content = " Utónevek   " + lbForenameList.Items.Count;
-            tbNumberOfGeneratedNames.Text = lbgeneratedNames.Items.Count.ToString();
-            sliGenerateName.Maximum = lbSurnameList.Items.Count;
-            lblMaxSli.Content = lbSurnameList.Items.Count;
+            ResetCounters();
+            JumpToEndOfNamesList();
         }
         private void sortNames_Click(object sender, RoutedEventArgs e)
         {
@@ -217,10 +215,9 @@ namespace WpfApp3_2023._02._01_Névgenerátor
                     lbForenameList.Items.Add(selectedItemList[item]);
                 }
             }
+            ResetCounters();
             lbgeneratedNames.Items.RemoveAt(lbgeneratedNames.SelectedIndex);
-            lblSurname.Content = "Családnevek   " + lbSurnameList.Items.Count;
-            lblForename.Content = "Utónevek   " + lbForenameList.Items.Count;
-            tbNumberOfGeneratedNames.Text = lbgeneratedNames.Items.Count.ToString();
+            JumpToEndOfNamesList();
 
         }
 
@@ -263,10 +260,33 @@ namespace WpfApp3_2023._02._01_Névgenerátor
             }
         }
 
-        private void JumpToEndOfList()
+        private void JumpToEndOfGenList()
         {
             lbgeneratedNames.Items.MoveCurrentToLast();
             lbgeneratedNames.ScrollIntoView(lbgeneratedNames.Items.CurrentItem);
+        }
+
+        private void JumpToEndOfNamesList()
+        {
+            lbSurnameList.Items.MoveCurrentToLast();
+            lbSurnameList.ScrollIntoView(lbSurnameList.Items.CurrentItem);
+            lbForenameList.Items.MoveCurrentToLast();
+            lbForenameList.ScrollIntoView(lbForenameList.Items.CurrentItem);
+        }
+
+        private void AddAndDeleteListItem()
+        {
+            lbgeneratedNames.Items.Add(fullName);
+            lbSurnameList.Items.RemoveAt(rndSurname);
+            lbForenameList.Items.RemoveAt(rndForename);
+        }
+        private void ResetCounters()
+        {
+            tbNumberOfGeneratedNames.Text = lbgeneratedNames.Items.Count.ToString();
+            lblSurname.Content = "Családnevek   " + lbSurnameList.Items.Count;
+            lblForename.Content = "Utónevek   " + lbForenameList.Items.Count;
+            sliGenerateName.Maximum = lbSurnameList.Items.Count;
+            lblMaxSli.Content = lbSurnameList.Items.Count;
         }
     }
 }
