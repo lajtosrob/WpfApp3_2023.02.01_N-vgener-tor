@@ -129,6 +129,7 @@ namespace WpfApp3_2023._02._01_Névgenerátor
             sliGenerateName.Maximum = lbSurnameList.Items.Count;
             lblMaxSli.Content = lbSurnameList.Items.Count;
             stbOrderedList.Content = "";
+            JumpToEndOfList();
         }
         private void deleteGeneratedNames_Click(object sender, RoutedEventArgs e)
         {
@@ -260,6 +261,12 @@ namespace WpfApp3_2023._02._01_Névgenerátor
                 txtGenerateNumber.Text = "";
                 txtGenerateNumber.Focus();
             }
+        }
+
+        private void JumpToEndOfList()
+        {
+            lbgeneratedNames.Items.MoveCurrentToLast();
+            lbgeneratedNames.ScrollIntoView(lbgeneratedNames.Items.CurrentItem);
         }
     }
 }
