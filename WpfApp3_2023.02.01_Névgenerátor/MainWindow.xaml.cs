@@ -34,10 +34,10 @@ namespace WpfApp3_2023._02._01_Névgenerátor
             if (lbSurnameList.Items.Count == 0)
             {
                 OpenFileDialog openFileDialog = new OpenFileDialog();
-                if(openFileDialog.ShowDialog() == true)
+                if (openFileDialog.ShowDialog() == true)
                 {
-                    string[] sorok = File.ReadAllLines(openFileDialog.FileName); 
-                    foreach(string sor in sorok) 
+                    string[] sorok = File.ReadAllLines(openFileDialog.FileName);
+                    foreach (string sor in sorok)
                     {
                         lbSurnameList.Items.Add(sor);
                     }
@@ -65,11 +65,11 @@ namespace WpfApp3_2023._02._01_Névgenerátor
                 if (openFileDialog.ShowDialog() == true)
                 {
                     string[] sorok = File.ReadAllLines(openFileDialog.FileName);
-                    foreach(string sor in sorok)
+                    foreach (string sor in sorok)
                     {
                         lbForenameList.Items.Add(sor);
                     }
-                    
+
                 }
                 /* int forenameCount = 0;
                 StreamReader sr = new StreamReader("Utónevek.txt");
@@ -168,7 +168,7 @@ namespace WpfApp3_2023._02._01_Névgenerátor
                 names[rowIndex] += Convert.ToString(lbgeneratedNames.Items[rowIndex]);
             }
             SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.AddExtension= true;
+            saveFileDialog.AddExtension = true;
             saveFileDialog.DefaultExt = "txt";
             saveFileDialog.Filter = "Text file (*.txt)|*.txt|CSV file (*.csv)|*.csv|All Files (*.*)|*.*";
             saveFileDialog.Title = "Enter the name of the file!";
@@ -188,7 +188,15 @@ namespace WpfApp3_2023._02._01_Névgenerátor
         {
             if (e.Key == Key.Enter)
             {
-                sliGenerateName.Value = Convert.ToInt32(txtGenerateNumber.Text);
+                try
+                {
+                    sliGenerateName.Value = Convert.ToInt32(txtGenerateNumber.Text);
+                }
+                catch (Exception)
+                {
+                    txtGenerateNumber.Text = "";
+                    txtGenerateNumber.Focus();
+                }
             }
         }
         private void lbgeneratedNames_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -214,17 +222,41 @@ namespace WpfApp3_2023._02._01_Névgenerátor
 
         private void txtGenerateNumber_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            sliGenerateName.Value = Convert.ToInt32(txtGenerateNumber.Text);
+            try
+            {
+                sliGenerateName.Value = Convert.ToInt32(txtGenerateNumber.Text);
+            }
+            catch (Exception)
+            {
+                txtGenerateNumber.Text = "";
+                txtGenerateNumber.Focus();
+            }
         }
 
         private void txtGenerateNumber_MouseLeave(object sender, MouseEventArgs e)
         {
-            sliGenerateName.Value = Convert.ToInt32(txtGenerateNumber.Text);
+            try
+            {
+                sliGenerateName.Value = Convert.ToInt32(txtGenerateNumber.Text);
+            }
+            catch (Exception)
+            {
+                txtGenerateNumber.Text = "";
+                txtGenerateNumber.Focus();
+            }
         }
 
         private void txtGenerateNumber_MouseLeave_1(object sender, MouseEventArgs e)
         {
-            sliGenerateName.Value = Convert.ToInt32(txtGenerateNumber.Text);
+            try
+            {
+                sliGenerateName.Value = Convert.ToInt32(txtGenerateNumber.Text);
+            }
+            catch (Exception)
+            {
+                txtGenerateNumber.Text = "";
+                txtGenerateNumber.Focus();
+            }
         }
     }
 }
