@@ -169,7 +169,10 @@ namespace WpfApp3_2023._02._01_Névgenerátor
                 names[rowIndex] += Convert.ToString(lbgeneratedNames.Items[rowIndex]);
             }
             SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.AddExtension= true;
+            saveFileDialog.DefaultExt = "txt";
             saveFileDialog.Filter = "Text file (*.txt)|*.txt|CSV file (*.csv)|*.csv|All Files (*.*)|*.*";
+            saveFileDialog.Title = "Enter the name of the file!";
             saveFileDialog.InitialDirectory = @"C:\Users\LifebookE736\source\repos\WpfApp3_2023.02.01_Névgenerátor\WpfApp3_2023.02.01_Névgenerátor\bin\Debug\net6.0-windows";
             if (saveFileDialog.ShowDialog() == true)
             {

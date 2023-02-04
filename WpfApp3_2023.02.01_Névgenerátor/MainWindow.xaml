@@ -45,6 +45,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
+            <Border Background="LightSeaGreen" CornerRadius="10" Padding="5">
             <Grid
                 Background="DarkSeaGreen">
                 <Grid.RowDefinitions>
@@ -75,6 +76,8 @@
                 </StackPanel>
 
             </Grid>
+            </Border>
+
             <Button x:Name="generateName" Content="Neveket generál" Grid.Row="1" Margin="0 5" Click="generateName_Click"/>
             <Button x:Name="deleteGeneratedNames" Content="Generált nevek törlése" Grid.Row="2" Margin="0 5" Click="deleteGeneratedNames_Click"/>
             <Button x:Name="sortNames" Content="Nevek rendezése" Grid.Row="3" Margin="0 5" Click="sortNames_Click"/>
