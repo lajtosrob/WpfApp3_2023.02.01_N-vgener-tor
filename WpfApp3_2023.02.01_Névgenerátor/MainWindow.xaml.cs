@@ -115,6 +115,10 @@ namespace WpfApp3_2023._02._01_Névgenerátor
                     rndSurname = rnd.Next(lbSurnameList.Items.Count - 1);
                     rndForename = rnd.Next(lbForenameList.Items.Count - 1);
                     rndForename2 = rnd.Next(lbForenameList.Items.Count - 1);
+                    while (rndForename == rndForename2)
+                    {
+                        rndForename2 = rnd.Next(lbForenameList.Items.Count - 1);
+                    }
                     fullName = lbSurnameList.Items[rndSurname] + " " + Convert.ToString(lbForenameList.Items[rndForename]) + " " + Convert.ToString(lbForenameList.Items[rndForename2]);
                     AddAndDeleteListItem();
                     if (rndForename < rndForename2)
