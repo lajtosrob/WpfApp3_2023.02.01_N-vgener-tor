@@ -23,7 +23,6 @@ namespace WpfApp3_2023._02._01_Névgenerátor
     /// </summary>
     public partial class MainWindow : Window
     {
-        int surnameCount = 0;
         public MainWindow()
         {
             InitializeComponent();

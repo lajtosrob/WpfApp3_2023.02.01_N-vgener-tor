@@ -85,13 +85,22 @@
 
 
         </Grid>
-            <StackPanel Grid.Row="4"
+
+        <StatusBar Grid.Row="4" Grid.ColumnSpan="2">
+            <StatusBarItem Content="Generált nevek száma:"/>
+            <TextBlock Text="{Binding ElementName=lbgeneratedNames, Path=Items.Count}"/>
+            <Separator Margin="10 0"/>
+            <StatusBarItem x:Name="lblNumberGeneratedNames"/>
+        </StatusBar>
+        
+        
+            <!-- <StackPanel Grid.Row="4"
                         VerticalAlignment="Top"
                         Orientation="Horizontal"
                         Background="#eeeeee"
                         Grid.ColumnSpan="2">
                 <Label  Content="Generált nevek száma: "/>
                 <Label x:Name="lblNumberGeneratedNames" Content="0"/>
-            </StackPanel>
+            </StackPanel> -->
     </Grid>
 </Window>
