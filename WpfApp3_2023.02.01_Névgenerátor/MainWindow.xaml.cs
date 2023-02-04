@@ -100,7 +100,7 @@ namespace WpfApp3_2023._02._01_Névgenerátor
             int rndForename2;
             if (rdoOneForename.IsChecked == true)
             {
-                for (int i = 0; i < sliGenerateName.Value; i++)
+                for (int nameCount = 0; nameCount < ((int)sliGenerateName.Value); nameCount++)
                 {
                     rndSurname = rnd.Next(lbSurnameList.Items.Count - 1);
                     rndForename = rnd.Next(lbForenameList.Items.Count - 1);
@@ -110,7 +110,7 @@ namespace WpfApp3_2023._02._01_Névgenerátor
             }
             if (rdoTwoForename.IsChecked == true)
             {
-                for (int i = 0; i < sliGenerateName.Value; i++)
+                for (int nameCount2 = 0; nameCount2 < ((int)sliGenerateName.Value); nameCount2++)
                 {
                     rndSurname = rnd.Next(lbSurnameList.Items.Count - 1);
                     rndForename = rnd.Next(lbForenameList.Items.Count - 1);
@@ -123,9 +123,8 @@ namespace WpfApp3_2023._02._01_Névgenerátor
                     }
                     else
                     {
-                    lbForenameList.Items.RemoveAt(rndForename2);
+                        lbForenameList.Items.RemoveAt(rndForename2);
                     }
-
                 }
             }
             ResetCounters();
