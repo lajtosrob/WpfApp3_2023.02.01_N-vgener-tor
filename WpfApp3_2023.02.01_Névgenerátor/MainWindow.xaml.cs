@@ -26,8 +26,8 @@ namespace WpfApp3_2023._02._01_Névgenerátor
         public MainWindow()
         {
             InitializeComponent();
-            sliGenerateName.Maximum = lbSurnameList.Items.Count;
-            lblMaxSli.Content = lbSurnameList.Items.Count;
+            // sliGenerateName.Maximum = lbSurnameList.Items.Count;
+            // lblMaxSli.Content = lbSurnameList.Items.Count;
         }
         private void btnSurnameLoad_Click(object sender, RoutedEventArgs e)
         {
@@ -123,11 +123,12 @@ namespace WpfApp3_2023._02._01_Névgenerátor
                     lbForenameList.Items.RemoveAt(rndForename2);
                 }
             }
-            lblNumberGeneratedNames.Content = lbgeneratedNames.Items.Count;
+            tbNumberOfGeneratedNames.Text = lbgeneratedNames.Items.Count.ToString();
             lblSurname.Content = "Családnevek   " + lbSurnameList.Items.Count;
             lblForename.Content = "Utónevek   " + lbForenameList.Items.Count;
             sliGenerateName.Maximum = lbSurnameList.Items.Count;
             lblMaxSli.Content = lbSurnameList.Items.Count;
+            stbOrderedList.Content = "";
         }
         private void deleteGeneratedNames_Click(object sender, RoutedEventArgs e)
         {
@@ -151,7 +152,7 @@ namespace WpfApp3_2023._02._01_Névgenerátor
             lbgeneratedNames.Items.Clear();
             lblSurname.Content = "Családnevek   " + lbSurnameList.Items.Count;
             lblForename.Content = " Utónevek   " + lbForenameList.Items.Count;
-            lblNumberGeneratedNames.Content = lbgeneratedNames.Items.Count;
+            tbNumberOfGeneratedNames.Text = lbgeneratedNames.Items.Count.ToString();
             sliGenerateName.Maximum = lbSurnameList.Items.Count;
             lblMaxSli.Content = lbSurnameList.Items.Count;
         }
@@ -159,6 +160,7 @@ namespace WpfApp3_2023._02._01_Névgenerátor
         {
             lbgeneratedNames.Items.SortDescriptions.Add(
                 new SortDescription("", ListSortDirection.Ascending));
+            stbOrderedList.Content = "Rendezett lista";
         }
         private void saveGeneratedNames_Click(object sender, RoutedEventArgs e)
         {
@@ -217,7 +219,8 @@ namespace WpfApp3_2023._02._01_Névgenerátor
             lbgeneratedNames.Items.RemoveAt(lbgeneratedNames.SelectedIndex);
             lblSurname.Content = "Családnevek   " + lbSurnameList.Items.Count;
             lblForename.Content = "Utónevek   " + lbForenameList.Items.Count;
-            lblNumberGeneratedNames.Content = lbgeneratedNames.Items.Count;
+            tbNumberOfGeneratedNames.Text = lbgeneratedNames.Items.Count.ToString();
+
         }
 
         private void txtGenerateNumber_MouseDoubleClick(object sender, MouseButtonEventArgs e)

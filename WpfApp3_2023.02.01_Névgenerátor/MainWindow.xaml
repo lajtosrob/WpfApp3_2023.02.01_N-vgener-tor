@@ -73,7 +73,7 @@
                             Grid.Row="2">
                             <Label Content="0"/>
                             <Slider x:Name="sliGenerateName" Minimum="0" Maximum="0" Width="300" ValueChanged="sliGenerateName_ValueChanged"/>
-                            <Label x:Name="lblMaxSli" Content="90"/>
+                            <Label x:Name="lblMaxSli" Content="0"/>
                         </StackPanel>
 
                     </Grid>
@@ -89,9 +89,9 @@
 
             <StatusBar Grid.Row="4" Grid.ColumnSpan="2">
                 <StatusBarItem Content="Generált nevek száma:"/>
-                <TextBlock Text="{Binding ElementName=lbgeneratedNames, Path=Items.Count}"/>
+                <TextBlock x:Name="tbNumberOfGeneratedNames"/>
                 <Separator Margin="10 0"/>
-                <StatusBarItem x:Name="lblNumberGeneratedNames"/>
+                <StatusBarItem x:Name="stbOrderedList"/>
             </StatusBar>
 
 
